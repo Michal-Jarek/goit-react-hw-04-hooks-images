@@ -20,13 +20,16 @@ export const App = () => {
 
   // ******************* useEffects  *********************************
   useEffect(() => {
+    // eslint-disable-next-line
     window.addEventListener('keydown', handleKeyCloseModal);
+    // eslint-disable-next-line
     return () => window.removeEventListener('keydown', handleKeyCloseModal);
-    
   }, []);
 
   useEffect(() => {
+    
     const fetchData = async () => {
+      /* eslint-disable no-return-assign, no-param-reassign */
       setIsLoad(!isLoad);
       try {
         const response = await inquiry(wanted, page + 1);
@@ -39,11 +42,11 @@ export const App = () => {
       } finally {
         setIsLoad(false);
       }
+      /* eslint-enable no-return-assign, no-param-reassign */
     };
-    console.log(photosArray);
-    console.log(page);
-    console.log(photosArray);
+
     if (wanted.length !== 0) fetchData();
+    
   }, [page, wanted]);
 
   // ******************* END useEffects ***********************************
