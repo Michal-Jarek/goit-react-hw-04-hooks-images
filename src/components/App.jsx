@@ -29,7 +29,8 @@ export const App = () => {
   useEffect(() => {
     
     const fetchData = async () => {
-      setIsLoad(true);
+      /* eslint-disable no-return-assign, no-param-reassign */
+      setIsLoad(!isLoad);
       try {
         const response = await inquiry(wanted, page + 1);
         const newPhotosArray = [...photosArray];
@@ -41,6 +42,7 @@ export const App = () => {
       } finally {
         setIsLoad(false);
       }
+      /* eslint-enable no-return-assign, no-param-reassign */
     };
 
     if (wanted.length !== 0) fetchData();
