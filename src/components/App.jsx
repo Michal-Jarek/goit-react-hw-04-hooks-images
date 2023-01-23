@@ -65,7 +65,6 @@ export const App = () => {
   };
 
   const handleKeyCloseModal = e => {
-    console.log(e.code);
     if (e.code === 'Escape') setModalVisible(false);
   };
 
