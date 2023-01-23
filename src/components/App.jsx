@@ -27,10 +27,8 @@ export const App = () => {
   }, []);
 
   useEffect(() => {
-    
     const fetchData = async () => {
-      /* eslint-disable no-return-assign, no-param-reassign */
-      setIsLoad(!isLoad);
+      setIsLoad(() => true);
       try {
         const response = await inquiry(wanted, page + 1);
         const newPhotosArray = [...photosArray];
@@ -40,13 +38,12 @@ export const App = () => {
       } catch (e) {
         console.log(e);
       } finally {
-        setIsLoad(false);
+        setIsLoad(() => false);
       }
-      /* eslint-enable no-return-assign, no-param-reassign */
     };
 
     if (wanted.length !== 0) fetchData();
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, wanted]);
 
   // ******************* END useEffects ***********************************
