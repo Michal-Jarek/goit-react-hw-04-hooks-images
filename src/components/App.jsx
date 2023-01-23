@@ -20,9 +20,7 @@ export const App = () => {
 
   // ******************* useEffects  *********************************
   useEffect(() => {
-    // eslint-disable-next-line
     window.addEventListener('keydown', handleKeyCloseModal);
-    // eslint-disable-next-line
     return () => window.removeEventListener('keydown', handleKeyCloseModal);
   }, []);
 
@@ -41,7 +39,6 @@ export const App = () => {
         setIsLoad(() => false);
       }
     };
-
     if (wanted.length !== 0) fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, wanted]);
